@@ -1,8 +1,25 @@
 void intro() {
-  background(255);
-  rect(300,500,200,100);
+  background(0,255,255);
+  //Title
+  textSize(75);
+  text("Clicker Game", width/2, height/2-height/4);
+  //Start button
+  fill(255);
+  stroke(0);
+  strokeWeight(5);
+  rect(width/2,height/2+height/4,300,100);
+  fill(0);
+  textSize(50);
+  text("start", width/2, height/2+height/4);
 }
 void introClicks() {
-  if(mouseX>300 && mouseX<500 &&  mouseY>500 && mouseY<600)
-  mode=GAME;
+  if (mouseX > width/2 - 150 && mouseX < width/2 + 150 && mouseY > height/2 + height/4 - 50 && mouseY < height/2 + height/4 + 50) {
+  vx=random(-5,5);
+  vy=random(-5,5);
+  if(vx<0) vx-=5;
+  if(vx>0) vx+=5;
+  if(vy<0) vy-=5;
+  if(vy>0) vy+=5;
+    mode = GAME;
+  }
 }
