@@ -1,14 +1,24 @@
+//Cheng Cheng
+//Block 1-1
+//April 15,2026
+
+//MODE VARIABLES--------------------------------------------------------------------------------
 int mode;
 final int INTRO=0;
 final int GAME=1;
 final int PAUSE=2;
 final int GAMEOVER=3;
 
+//TARGET VARIABLES---------------------------------------------------------------------------
+
+//COLOR PALLETTE-------------------------------------------------------------------------
+
+
 void setup() {
   size(800, 800);
+  textAlign(CENTER, CENTER);
+  rectMode(CENTER);
   mode = INTRO;
-  textAlign(CENTER,CENTER);
- 
 }
 
 void draw() {
