@@ -6,6 +6,7 @@ void gameover() {
   score =0;
   lives=3;
   textSize(100);
+  fill(0);
   text("GAMEOVER :c", width/2, height/2);
 }
 void gameoverClicks() {

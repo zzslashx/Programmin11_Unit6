@@ -22,26 +22,51 @@ void game() {
   text("Score: " + score, 100, 100);
   text("Lives: " + lives, 100, 150);
 
-  //display target
-  fill(255);
-  stroke(0);
-  strokeWeight(5);
-  circle(x, y, d);
+  displayTarget();
 }
 void gameClicks() {
-  if (dist(mouseX, mouseY, x, y) < d/2) { //target button
-    score++;
+  if (dist(mouseX, mouseY, x, y) < d/8) { // bullseye
+    score += 3;
     coin.rewind();
     coin.play();
-    //reset target to new location
-    x=random(d/2, width-d/2);
-    y=random(d/2, height-d/2);
-  } else if (dist(width-100, 100, mouseX, mouseY)<45) { //pause button
-    mode=PAUSE;
-  } else {
+    x = random(d/2, width-d/2);
+    y = random(d/2, height-d/2);
+  } else if (dist(mouseX, mouseY, x, y) < d/4) { // inner ring
+    score += 2;
+    coin.rewind();
+    coin.play();
+    x = random(d/2, width-d/2);
+    y = random(d/2, height-d/2);
+  } else if (dist(mouseX, mouseY, x, y) < d/2) { // outer ring
+    score += 1;
+    coin.rewind();
+    coin.play();
+    x = random(d/2, width-d/2);
+    y = random(d/2, height-d/2);
+  } else if (dist(width-100, 100, mouseX, mouseY) < 45) { // pause button
+    mode = PAUSE;
+  } else { // miss
     lives--;
     bump.rewind();
     bump.play();
   }
-  if (lives==0) mode=GAMEOVER;
+  if (lives == 0) mode = GAMEOVER;
+}
+void displayTarget() {
+
+  // outermost ring
+  stroke(0);
+  strokeWeight(3);
+  fill(255, 255, 255);
+  circle(x, y, d);
+  noStroke();
+  // second ring
+  fill(255, 0, 0);
+  circle(x, y, d * 0.75);
+  // third ring
+  fill(255, 255, 255);
+  circle(x, y, d * 0.5);
+  // bullseye
+  fill(255, 0, 0);
+  circle(x, y, d * 0.25);
 }
