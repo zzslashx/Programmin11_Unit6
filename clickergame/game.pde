@@ -22,8 +22,12 @@ void game() {
 void gameClicks() {
   if (dist(mouseX, mouseY, x, y) < d/2) {
     score++;
+    coin.rewind();
+    coin.play();
   } else {
     lives--;
+    bump.rewind();
+    bump.play();
   }
   if (lives==0) mode=GAMEOVER;
 }

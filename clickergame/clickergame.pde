@@ -2,6 +2,16 @@
 //Block 1-1
 //April 15,2026
 
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+
+
+
 //MODE VARIABLES--------------------------------------------------------------------------------
 int mode;
 final int INTRO=0;
@@ -14,6 +24,10 @@ float x,y,d;
 float vx,vy; //target velocities 
 int score, lives;
 //COLOR PALLETTE-------------------------------------------------------------------------
+
+//sound variables
+Minim minim;
+AudioPlayer theme, coin, bump, gameover;
 
 
 void setup() {
@@ -31,6 +45,14 @@ void setup() {
   vy=random(-2,2);
   score =0;
   lives=3;
+  
+  //minim
+  minim = new Minim(this);
+  theme = minim.loadFile("mario bros theme.mp3");
+  coin = minim.loadFile("coin.wav");
+  bump = minim.loadFile("bump.wav");
+  gameover = minim.loadFile("gameover.wav");
+  
 }
 
 void draw() {

@@ -1,4 +1,7 @@
 void intro() {
+  
+  theme.play();
+  
   background(0,255,255);
   //Title
   textSize(75);
