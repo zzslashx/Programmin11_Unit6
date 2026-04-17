@@ -12,6 +12,7 @@ final int GAMEOVER=3;
 //TARGET VARIABLES---------------------------------------------------------------------------
 float x,y,d;
 float vx,vy; //target velocities 
+int score, lives;
 //COLOR PALLETTE-------------------------------------------------------------------------
 
 
@@ -26,8 +27,10 @@ void setup() {
   x = width/2;
   y = height/2;
   d = 100;
-  vx=random(-5,5);
-  vy=random(-5,5);
+  vx=random(-2,2);
+  vy=random(-2,2);
+  score =0;
+  lives=3;
 }
 
 void draw() {

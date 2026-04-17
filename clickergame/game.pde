@@ -1,22 +1,29 @@
-void game(){
-background(0,255,0);
+void game() {
+  background(0, 255, 0);
 
-//display target
-fill(255);
-stroke(0);
-strokeWeight(5);
-circle(x,y,d);
+  //score + lives
+  text("Score: " + score, 100, 100);
+  text("Lives: " + lives, 100, 150);
 
-//moving
-x+=vx;
-y+=vy;
+  //display target
+  fill(255);
+  stroke(0);
+  strokeWeight(5);
+  circle(x, y, d);
 
-//bouncing
-if(x<d/2 || x>width-d/2) vx=-vx;
-if(y<d/2||y>height-d/2) vy=-vy;
+  //moving
+  x+=vx;
+  y+=vy;
+
+  //bouncing
+  if (x<d/2 || x>width-d/2) vx=-vx;
+  if (y<d/2||y>height-d/2) vy=-vy;
 }
-void gameClicks(){
-mode=GAMEOVER;
-
+void gameClicks() {
+  if (dist(mouseX, mouseY, x, y) < d/2) {
+    score++;
+  } else {
+    lives--;
+  }
+  if (lives==0) mode=GAMEOVER;
 }
-//Brace highlights when you select it

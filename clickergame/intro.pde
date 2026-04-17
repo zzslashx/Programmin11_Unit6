@@ -14,12 +14,8 @@ void intro() {
 }
 void introClicks() {
   if (mouseX > width/2 - 150 && mouseX < width/2 + 150 && mouseY > height/2 + height/4 - 50 && mouseY < height/2 + height/4 + 50) {
-  vx=random(-5,5);
-  vy=random(-5,5);
-  if(vx<0) vx-=5;
-  if(vx>0) vx+=5;
-  if(vy<0) vy-=5;
-  if(vy>0) vy+=5;
-    mode = GAME;
+  vx=random(-2,2);
+  vy=random(-2,2);
+  mode = GAME;
   }
 }
