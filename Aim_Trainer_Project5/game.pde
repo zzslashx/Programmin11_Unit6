@@ -1,7 +1,7 @@
 void game() {
 
   //visuals
-  background(0, 255, 0);
+  background(0, 120, 0);
   //pause button
   stroke(0);
   fill(255);
@@ -85,7 +85,7 @@ void displayTarget() {
 }
 void drawPopup() {
   if (popupTimer > 0) {
-    textSize(45);
+    textSize(55);
     textAlign(CENTER, CENTER);
     fill(255, 255, 255, popupTimer * 3); // fades out
     text("+" + (int)popupValue, popupX, popupY - (50 - popupTimer)); // floats up

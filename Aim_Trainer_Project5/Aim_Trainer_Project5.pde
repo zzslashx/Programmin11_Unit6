@@ -11,7 +11,6 @@ import ddf.minim.ugens.*;
 
 
 
-
 //MODE VARIABLES--------------------------------------------------------------------------------
 int mode;
 final int INTRO=0;
